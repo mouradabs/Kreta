@@ -20,7 +20,7 @@ import ProjectEdit from './../../form/ProjectEdit';
 import Section from './../../component/Section';
 import Thumbnail from './../../component/Thumbnail';
 import SettingsParticipants from './SettingsParticipants';
-import UserPreview from './../../component/UserPreview';
+// import UserPreview from './../../component/UserPreview';
 import LoadingSpinner from './../../component/LoadingSpinner';
 import CurrentProjectActions from './../../../actions/CurrentProject';
 import PageHeader from './../../component/PageHeader';
@@ -48,15 +48,19 @@ class Settings extends React.Component {
       return <LoadingSpinner/>;
     }
 
-    const participants = this.props.project.participants.map(
-      (participant, index) => <UserPreview key={index} user={participant.user}/>
-    );
+//     const participants = this.props.project.participants.map(
+//       (participant, index) => <UserPreview key={index} user={participant.user}/>
+//     );
+
+    const participants = [];
 
     return (
       <div>
         <ContentMiddleLayout>
-          <PageHeader thumbnail={<Thumbnail image={this.props.project.image.name} text={this.props.project.name}/>}
-                      title={this.props.project.name}/>
+          <PageHeader
+            thumbnail={<Thumbnail image={null} text={this.props.project.name}/>}
+            title={this.props.project.name}
+          />
           <Section>
             <ProjectEdit onSubmit={this.updateProject.bind(this)}/>
           </Section>
